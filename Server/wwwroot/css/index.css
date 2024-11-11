@@ -1,0 +1,50 @@
+﻿/* NOTES: Basic color pallette to be used 
+    #FF5A5F - Game Cards color
+    #FFFFFF - Main Page background?
+    #07090F - Font Color on white/lighter colors
+    #ECE2D0 - Font Color on Buttons and Game Cards
+    #5A7684 - Button Colors (consider looking into gradient colors)
+*/
+
+
+
+body {
+    background-color: #FFFFFF;
+}
+
+/* Basic card stuff */
+.game-card {
+    background-color: #FF5A5F;
+    color: #07090F;
+    height: 10em;
+    width: 20em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-card-colors {
+    background-color: #FF5A5F;
+    color: #07090F;
+}
+
+.game-card-container {
+    height: 200em;
+    width: 200em;
+}
+
+.game-card-buttons {
+    position: relative;
+    top: 1.5em;
+    width: 100%;
+    justify-content: space-evenly;
+}
+/* Basic Flex stuff */
+.flex {
+    display: flex;
+}
+
+.row {
+    flex-direction: row;
+}
