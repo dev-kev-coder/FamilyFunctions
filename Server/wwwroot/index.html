@@ -7,20 +7,34 @@
 </head>
 <body>
 
+    <!-- Root Container -->
     <div id="root">
-
-        <div class="game-card">
-            <h3>Letters</h3>
-
-            <div class="flex row game-card-buttons">
-                <button>JOIN</button>
-                <div></div>
-                <button>HOST</button>
-            </div>
-        </div>
 
     </div>
 
-    <script src="js/main.js" ></script>
+    <!-- Customized Game Card -->
+    <div class="card flip-card">
+        <div class="flip-card-inner">
+            <!-- Front Side -->
+            <div class="flip-card-front">
+                <!-- Title centered -->
+                <div class="card-front-content">
+                    <h2 class="card-title">Game Title</h2>
+                </div>
+            </div>
+            <!-- Back Side -->
+            <div class="flip-card-back">
+                <!-- Image and content -->
+                <img src="images/game3.jpg" alt="Game Image" class="card-image">
+                <div class="card-content">
+                    <p class="card-description">Engage in this thrilling adventure!</p>
+                    <button class="btn-neon-ripple">Play Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript File -->
+    <script src="js/main.js"></script>
 </body>
 </html>
