@@ -1,25 +1,32 @@
-const main = () => {
-   console.log("running main");
+// Basic library
+const Kelvin = {
+  appRoot: null,
 
-//    // Ripple Effect for .btn-ripple buttons
-//    document.addEventListener('DOMContentLoaded', () => {
-//        const rippleButtons = document.querySelectorAll('.btn-ripple');
+  render(app) {
+    this.appRoot.appendChild(app());
+    console.log("rendering");
+  },
 
-//        rippleButtons.forEach(button => {
-//            button.addEventListener('click', function (e) {
-//                const rect = this.getBoundingClientRect();
-//                const ripple = document.createElement('span');
-//                const size = Math.max(rect.width, rect.height);
-//                ripple.style.width = ripple.style.height = `${size}px`;
-//                ripple.style.left = `${e.clientX - rect.left - size / 2}px`;
-//                ripple.style.top = `${e.clientY - rect.top - size / 2}px`;
-//                ripple.classList.add('ripple');
-//                this.appendChild(ripple);
-//                setTimeout(() => ripple.remove(), 600);
-//            });
-//        });
-//    });
+  getRootElement(elementId) {
+    this.appRoot = document.getElementById(elementId);
+  },
+};
 
-}
+const component = (val) => {
+  const heading = document.createElement("h1");
+  heading.innerText = val;
+  return heading;
+};
 
-main();
+const app = () => {
+  const div = document.createElement("div");
+  div.appendChild(component('Test1'));
+  div.appendChild(component('Test1'));
+  div.appendChild(component('Test1'));
+  div.appendChild(component('Test1'));
+  return div;
+};
+
+const root = Kelvin.getRootElement("root");
+
+Kelvin.render(app);
