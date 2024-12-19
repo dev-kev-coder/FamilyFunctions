@@ -1,5 +1,8 @@
 
 using System.Net.Http.Headers;
+using System.Net.Sockets;
+using System.Net;
+using System;
 
 namespace Server
 {
@@ -7,6 +10,7 @@ namespace Server
     {
         public static void Main(string[] args)
         {
+
             var builder = WebApplication.CreateBuilder(args);
 
             var app = builder.Build();
@@ -37,6 +41,22 @@ namespace Server
             });
 
             app.Run();
+
+            // WebSockect
+            var webSocketServer = new TcpListener(IPAddress.Parse("127.0.0.1"), 80);
+            webSocketServer.Start();
+            var client = webSocketServer.AcceptTcpClient();
+            var stream = client.GetStream();
+
+            while (true)
+            {
+                while (!stream.DataAvailable) ;
+
+                var bytes = new byte[client.Available];
+
+                stream.Read(bytes, 0, bytes.Length);
+            }
+
         }
     }
 }

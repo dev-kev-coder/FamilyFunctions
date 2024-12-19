@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  entry: './src/App.jsx', // Entry point of your application
+  entry: './src/index.jsx', // Entry point of your application
   output: {
     path: path.resolve(__dirname, '../Server/wwwroot/js/reactapps'),
     filename: 'main.js', // Output bundle
