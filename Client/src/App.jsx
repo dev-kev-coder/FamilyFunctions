@@ -3,9 +3,11 @@ import GameCard from './components/GameCard';
 
 const App = () => {
   const handleHostOnClick = () => {
-    const socket = new WebSocket('https://localhost:44369/');
+    const socket = new WebSocket('/games');
 
     socket.addEventListener('open', (e) => {
+      console.log('what did i get back ffrom the server...', e);
+
       socket.send(
         'connection was detected as open here is a message from the server'
       );

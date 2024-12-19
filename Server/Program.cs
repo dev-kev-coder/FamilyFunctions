@@ -10,7 +10,6 @@ namespace Server
     {
         public static void Main(string[] args)
         {
-
             var builder = WebApplication.CreateBuilder(args);
 
             var app = builder.Build();
@@ -40,23 +39,15 @@ namespace Server
                 return homeHTML;
             });
 
-            app.Run();
-
-            // WebSockect
-            var webSocketServer = new TcpListener(IPAddress.Parse("127.0.0.1"), 80);
-            webSocketServer.Start();
-            var client = webSocketServer.AcceptTcpClient();
-            var stream = client.GetStream();
-
-            while (true)
+            app.MapGet("/games", (HttpContext req, HttpResponse res) =>
             {
-                while (!stream.DataAvailable) ;
 
-                var bytes = new byte[client.Available];
+                var stop = "here";
 
-                stream.Read(bytes, 0, bytes.Length);
-            }
+                return "test";
+            });
 
+            app.Run();
         }
     }
 }
